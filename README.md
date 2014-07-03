@@ -2,6 +2,8 @@
 
 **DISCLAIMER:** This project was discontinued because facebook banned my app, I don't know exactly why because it was a long time ago.
 
+However, you can check how the application felt like in [this link](http://filteredinvite.herokuapp.com/), but it is not working for the reason cited above.
+
 ## What is it?
 
 It was a project that enabled people to invite their friend to an event. The plus was that it enabled them to invite with filters, i.e. Invite only single females aged between 18-24.
