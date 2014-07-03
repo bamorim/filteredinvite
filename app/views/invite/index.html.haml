@@ -1,0 +1,40 @@
+= form_tag "/", method: "POST", class: "form-horizontal" do
+  .container
+    .row
+      .span4
+        .well
+          %h1 Filtered Invite
+          %h4 beta
+    .row
+      .span7
+        .row
+          .span3
+            %h2 1. Connect
+            .hero-unit
+              - if user_signed_in?
+                = "Connected as #{current_user.name}."
+                = link_to "Sign out", sign_out_path
+              - else
+                = link_to "Facebook connect", facebook_login_path, class: "btn btn-large btn-primary"
+          .span4
+            %h2 2. Select an event
+            .hero-unit
+              = select :event, :id, user_signed_in? ? current_user.events : [], {selected: params[:event].nil? ? nil : params[:event][:id]}, disabled: !user_signed_in?
+        .row
+          .span7
+            %h2 4. Preview your friends
+            .hero-unit.friends
+              - if user_signed_in?
+                - @friends[0..59].each do |f|
+                  = link_to "http://facebook.com/#{f['id']}", target: "_blank" do
+                    %img{src: "https://graph.facebook.com/#{f['id']}/picture?type=square"}
+            %h2 5. Invite
+            .hero-unit
+              - if user_signed_in?
+                #invite.btn.btn-large.btn-success Invite
+              - else
+                %button.btn.btn-large.btn-success{disabled: true} Invite
+      .span5
+        = render 'filters'
+#loading
+  %h1 Inviting your friends...

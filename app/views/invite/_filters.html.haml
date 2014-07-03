@@ -1,0 +1,30 @@
+%h2 3. Filter
+.hero-unit
+  %fieldset
+    %legend{"data-toggle" => "collapse", "data-target" => "#basic"} Basic Info
+    #basic.collapse.in
+      #gender-group.input-prepend
+        %span.add-on Gender
+        = select :filters, :gender, ["Any",["Male", :male], ["Female", :female]], selected: params[:filters].nil? ? "Any" : params[:filters][:gender]
+      #location-group.input-prepend
+        %span.add-on Location
+        = text_field_tag :location
+      #hometown-group.input-prepend
+        %span.add-on Hometown
+        = text_field_tag :hometown
+      #age-group.input-prepend.input-append
+        %span.add-on Age
+        =text_field_tag "filters[age_from]", params[:filters].try(:[],:age_from), class: "input-mini"
+        %span.add-on to
+        = text_field_tag "filters[age_to]", params[:filters].try(:[],:age_to), class: "input-mini"
+  %fieldset
+    %legend{"data-toggle" => "collapse", "data-target" => "#relationship"} Relationship Status
+    #relationship.collapse.in
+      %label
+        = check_box_tag "filters[relationship_status][]", "nil", rs_checked?(nil)
+        Undefined
+      - Friends::RELATIONSHIP_STATUS.each do |rs|
+        %label
+          = check_box_tag "filters[relationship_status][]", rs, rs_checked?(rs)
+          = rs
+  = submit_tag "Filter", class: "btn btn-large"

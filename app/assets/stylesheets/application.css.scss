@@ -1,0 +1,91 @@
+@import "bootstrap";
+.hero-unit {
+  padding: 30px;
+  .btn {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+fieldset {
+  background: #f6f6f6;
+  margin: 10px 0 0;
+  border: 1px solid #e5e5e5;
+  padding-bottom: 5px;
+  @include border-radius(0 0 4px 4px);
+}
+legend {
+  background: #fff;
+  @include border-radius(4px 4px 0 0);
+  cursor: pointer;
+  margin: -10px 0px 5px -1px;
+  border: 1px solid #e5e5e5;
+}
+
+label, .input-prepend {
+  margin: 2px 5px;
+}
+
+.input-prepend.input-append {
+  margin-left: 6px;
+  input:last-child {
+    @include border-radius(0 4px 4px 0);
+  }
+}
+
+#location-group, #hometown-group {
+  display: none;
+}
+
+.friends {
+  img {
+    margin: 3px 0;
+    height: 35px;
+    width: 35px;
+  }
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  h1 {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    line-height: 40px;
+    margin-top: -20px;
+    text-align: center;
+    color: #eee;
+  }
+}
+
+.well {
+  position: relative;
+  margin-top: 5px;
+  h4 {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: #999;
+  }
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #eee;
+  line-height: 30px;
+  font-weight: bold;
+  border-top: 1px solid #CCC;
+  .fb-like {
+    position: absolute;
+    top: 3px;
+  }
+}
